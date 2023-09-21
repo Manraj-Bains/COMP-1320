@@ -1,5 +1,4 @@
 module.exports = {getDayOfWeek, makeCalender }
-
  function getDayOfWeek(year ,day ,month ) {
     let strYear = year.toString(); // convert num to STRING as strYear
     let lastTwo = strYear.slice(-2); // Last 2 num of STRING as lastTwo
@@ -10,7 +9,7 @@ module.exports = {getDayOfWeek, makeCalender }
     let rem = parseInt(numLast - (twelves*12)); //remainder (USE MODULO OPERATOR) --> 7/3 = 1
     let fours = Math.trunc(rem/4); // fours 
     let strMonth = month.toString();
-    
+
     // month to code association 
     let monthCode = 0 // if else if statment(s) dictate our month code
     if (strMonth.toLowerCase() == "january"|| strMonth.toLowerCase() == "october"){
@@ -40,7 +39,6 @@ module.exports = {getDayOfWeek, makeCalender }
     }
     // day to code association
     let dayOfWeek = "a"
-    
     if (year%4 == 0){
         dayCode -= 1
     }
@@ -58,20 +56,14 @@ module.exports = {getDayOfWeek, makeCalender }
         dayOfWeek = "Thursday";
     } else if (dayCode == 6){
         dayOfWeek = "Friday";
-    }
-
-
-    return dayOfWeek;
+    } return dayOfWeek;
 };
- 
-
 function isLeapYear(year) {
     if (parseInt(year)%4 == 0){
         return true
     } else
     return false
 }
-
 function makeCalender(year){
     const week = ["Sunday" ,"Monday" ,"Tuesday" ,"Wednesday" ,"Thursday", "Friday", "Saturday"]; 
     for (let month = 0; month <= 12; month++){ 
