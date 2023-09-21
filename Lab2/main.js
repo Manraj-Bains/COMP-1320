@@ -12,18 +12,25 @@ labTwo.makeCalender(2022);
 
 function getDayOfTheWeekForUserDate(){
     const answer = readline.question("Choose a Date (MM-DD-YYYY): ");
-    if (answer.length !== 10 || input[2] !== "-"|| input[5] !== "-"){
+    const seg = answer.split("-");
+    if (seg.length !== 3 && seg.length !== 1) {
         console.log("Incorrect format, please use (MM-DD-YYYY) format")
         return;
-    }const seg = answer.split("-");
-    month = parseInt(seg[0])-1;
+    }
+    
+    month = parseInt(seg[0]);
     day = parseInt(seg[1]);
     year = parseInt(seg[2]);
     if (isNaN(month)||isNaN(day)||isNaN(year)) {
         console.log("That does not exist");
         return;
-    }const weekdayz = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const date = new Date(year, month - 1, day);
+    }
+    if (seg.length === 1){
+        let month = 1;
+        let day = 1;
+    }
+    const weekdayz = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const date = new Date(year, month-1, day);
     const dayOfWeek = weekdayz[date.getDay()];
     console.log(`${month}-${day}-${year} is a ${dayOfWeek}`);
 }
